@@ -4,7 +4,9 @@ import os
 TEMPLATE_PATH = os.path.join(os.path.expanduser('~'), '.local/share/cp-tool/template.cpp')
 
 def format_name(name):
-    return name.replace(' ', '_')
+    formatted = name.replace(' ', '_')
+    formatted = formatted.replace('.', '')
+    return formatted
 
 def check_exists(directory):
     if os.path.exists(directory):
