@@ -1,7 +1,21 @@
 #!/bin/bash
 
-# DIR="$(cd "$(dirname "$0")" && pwd)"
-DIR="$(dirname "$(readlink -f "$0")")"
+# Run the python script
+output=$(python "cpt-tool.py" "$@")
 
-python $DIR/main.py "$@"
+# Initialize variable to store parsed directory
+parsed_dir=""
+
+# Read lines from output string
+while IFS= read -r line; do
+    if [[ $line == dir=* ]]; then
+        parsed_dir=${line#dir=}
+        parsed_dir="${parsed_dir}"
+        break;
+    else
+        echo "$line";
+    fi
+done <<< "$output"
+
+cd "$parsed_dir" || exit 1
 

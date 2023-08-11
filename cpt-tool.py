@@ -39,21 +39,25 @@ def create_directory(directory, directory_name):
 def create_problem(directory, name):
     new_path = create_directory(directory, name)
     add_template(new_path, name)
+    return new_path
 
 def create_contest(directory, num_problems, name):
     new_path = create_directory(directory, name)
     for i in range(1, num_problems+1):
         problem_name = 'problem' + str(i)
         add_template(new_path, problem_name)
+    return new_path
 
 cur_directory = os.getcwd()
 
 if len(sys.argv) > 3 and sys.argv[1] == 'contest' and sys.argv[2].isdigit():
-    create_contest(cur_directory, int(sys.argv[2]), ' '.join(sys.argv[3:]))
+    new_dir = create_contest(cur_directory, int(sys.argv[2]), ' '.join(sys.argv[3:]))
     print('Contest files created.')
+    print('dir=' + new_dir)
 elif len(sys.argv) > 2 and sys.argv[1] == 'problem':
-    create_problem(cur_directory, ' '.join(sys.argv[2:]))
+    new_dir = create_problem(cur_directory, ' '.join(sys.argv[2:]))
     print('Problem files created.')
+    print('dir=' + new_dir)
 else:
     print('Invalid usage:')
     print('cpt problem <name>')
