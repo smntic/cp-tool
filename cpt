@@ -1,7 +1,10 @@
 #!/bin/bash
 
+script_name="cp-tool.py"
+script_path=$(command -v "$script_name")
+
 # Run the python script
-output=$(python "cpt-tool.py" "$@")
+output=$(python "$script_path" $@)
 
 # Initialize variable to store parsed directory
 parsed_dir=""
