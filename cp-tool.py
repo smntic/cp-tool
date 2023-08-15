@@ -1,3 +1,4 @@
+import re
 import sys
 import os
 
@@ -5,9 +6,7 @@ TEMPLATE_PATH = os.path.join(os.path.expanduser('~'), '.local/share/cp-tool/temp
 
 def format_name(name):
     formatted = name.replace(' ', '_')
-    formatted = formatted.replace('.', '')
-    formatted = formatted.replace('(', '')
-    formatted = formatted.replace(')', '')
+    formatted = re.sub(r'[^\w]', '', formatted)
     return formatted
 
 def check_exists(directory):
