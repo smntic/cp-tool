@@ -14,14 +14,16 @@ def check_exists(directory):
         print('Error: file exists')
         sys.exit(1)
 
-def add_template(directory, file_name):
+def add_template(directory, file_name, override=False):
     template_data = ""
     with open(TEMPLATE_PATH, 'r') as f:
         template_data = f.read()
 
     formatted_file_name = format_name(file_name)
     new_path = os.path.join(directory, formatted_file_name) + '.cpp'
-    check_exists(new_path)
+
+    if not override:
+        check_exists(new_path)
 
     with open(new_path, 'w') as f:
         f.write(template_data)
@@ -57,6 +59,10 @@ elif len(sys.argv) > 2 and sys.argv[1] == 'problem':
     new_dir = create_problem(cur_directory, ' '.join(sys.argv[2:]))
     print('Problem files created.')
     print('dir=' + new_dir)
+elif len(sys.argv) > 2 and sys.argv[1] == 'template':
+    file_path = sys.argv[2]
+    add_template(cur_directory, file_path, True)
+    print('Template file created')
 else:
     print('Invalid usage:')
     print('cpt problem <name>')

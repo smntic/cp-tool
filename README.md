@@ -13,7 +13,9 @@ Copy your .cpp template to '~/.local/share/cp-tool/template.cpp'
 `cpt problem <name>`
     -- creates folder with template\
 `cpt contest <num_problems> <name>`
-    -- creates folder with `<num_problems>` problems
+    -- creates folder with `<num_problems>` problems\
+`cpt template <file>`
+    -- creates or replaces `<file>` with template (for restarting problem)
 
 # Automatic chdir
 In case you do not want to manually cd to new directories created by cp-tool, run the command with `source cpt <arguments>` or alias `cpt` to `source cpt` in your shell profile
