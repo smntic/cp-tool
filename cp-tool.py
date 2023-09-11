@@ -7,6 +7,7 @@ TEMPLATE_PATH = os.path.join(os.path.expanduser('~'), '.local/share/cp-tool/temp
 def format_name(name):
     formatted = name.replace(' ', '_')
     formatted = re.sub(r'[^\w]', '', formatted)
+    formatted = formatted.rstrip('.cpp')
     return formatted
 
 def check_exists(directory):
