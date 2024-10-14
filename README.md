@@ -5,6 +5,11 @@ A command-line interface (CLI) for creating competitive programming problem file
 To set up your templates, copy them to `~/.local/share/cp-tool/template.<extension>`.  
 *(If you're using Windows or Mac, please [install Linux](https://github.com/Amog-OS/AmogOS).)*
 
+## Usage
+```
+cpt <commands> [args]
+```
+
 ## Commands
 - **Create a Problem:**
   ```bash
@@ -24,7 +29,7 @@ To set up your templates, copy them to `~/.local/share/cp-tool/template.<extensi
   ```
   Creates a new template file or replaces an existing one with the specified name.
 
-## Parameters
+## Arguments
 - **File Extension:**
   ```bash
   --extension=<ext> or -e=<ext>

@@ -73,6 +73,7 @@ def add_template(directory, file_name, extension, override=False):
         f.write(template_data)
 
 def print_help():
+    print('Usage: cpt <commands> [args]')
     print('cpt help')
     print('cpt problem <name>')
     print('cpt contest <num_problems> <name>')
