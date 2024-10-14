@@ -3,22 +3,32 @@
 script_name="cp-tool.py"
 script_path=$(command -v "$script_name")
 
-# Run the python script
-output=$(python "$script_path" $@)
+# Check if the script path is found in PATH
+if [ -z "$script_path" ]; then
+    echo "$script_name not found in PATH. Using local script."
+    # Use the local script in the current directory
+    script_path="./$script_name"
+fi
 
-# Initialize variable to store parsed directory
-parsed_dir=""
+# Check if the script file exists
+if [ ! -f "$script_path" ]; then
+    echo "Error: $script_path does not exist."
+    exit 1
+fi
+
+# Run the python script
+output=$(python "$script_path" "$@")
 
 # Read lines from output string
+parsed_dir=""
 while IFS= read -r line; do
     if [[ $line == dir=* ]]; then
         parsed_dir=${line#dir=}
         parsed_dir="${parsed_dir}"
         break;
     else
-        echo "$line";
+        echo "$line"
     fi
 done <<< "$output"
 
 cd "$parsed_dir" || exit 1
-
