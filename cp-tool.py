@@ -107,7 +107,7 @@ def ensure_not_exists(path):
 
 def crash_with_error(message):
     print(message)
-    sys.exit(1)
+    sys.exit(1) # Exit with error
 
 if __name__ == '__main__':
     main(sys.argv)
