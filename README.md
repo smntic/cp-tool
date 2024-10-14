@@ -29,6 +29,8 @@ cpt <commands> [args]
   ```
   Creates a new template file or replaces an existing one with the specified name.
 
+If the names contains special characters like '(', you can wrap the entire  name in quotes: "Codeforces Round (Div. 2)"
+
 ## Arguments
 - **File Extension:**
   ```bash
