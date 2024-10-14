@@ -1,22 +1,42 @@
 # cp-tool
-CLI for creating competitive programming problem files
+A command-line interface (CLI) for creating competitive programming problem files.
 
-# Installation
-Probably just clone this repo and then symlink cpt to /usr/bin or something
-Also do not forget to symlink cpt-tool.py to /usr/bin or something as well
+## Configuration
+To set up your templates, copy them to `~/.local/share/cp-tool/template.<extension>`.  
+*(If you're using Windows or Mac, please [install Linux](https://github.com/Amog-OS/AmogOS).)*
 
-# Configuration
-Copy your .cpp template to '~/.local/share/cp-tool/template.cpp'
-(If you are on Windows or Mac then [install Linux](https://github.com/Amog-OS/AmogOS))
+## Commands
+- **Create a Problem:**
+  ```bash
+  cpt problem <name>
+  ```
+  Creates a folder containing a template for the specified problem name.
 
-# Commands
-`cpt problem <name>`
-    -- creates folder with template\
-`cpt contest <num_problems> <name>`
-    -- creates folder with `<num_problems>` problems\
-`cpt template <file>`
-    -- creates or replaces `<file>` with template (for restarting problem)
+- **Create a Contest:**
+  ```bash
+  cpt contest <num_problems> <name>
+  ```
+  Creates a folder with `<num_problems>` problem files.
 
-# Automatic chdir
-In case you do not want to manually cd to new directories created by cp-tool, run the command with `source cpt <arguments>` or alias `cpt` to `source cpt` in your shell profile
+- **Create or Replace a Template:**
+  ```bash
+  cpt template <file>
+  ```
+  Creates a new template file or replaces an existing one with the specified name.
 
+## Parameters
+- **File Extension:**
+  ```bash
+  --extension=<ext> or -e=<ext>
+  ```
+  Use this parameter to specify the file extension for the templates and problem files.
+
+## Automatic Directory Change
+To avoid manually changing directories to the newly created folders, you can run the command with:
+```bash
+source cpt <arguments>
+```
+Alternatively, you can create an alias in your shell profile to make `cpt` execute with `source` automatically:
+```bash
+alias cpt='source cpt'
+```

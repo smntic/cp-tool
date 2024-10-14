@@ -1,14 +1,8 @@
 #!/bin/bash
 
+# Get the path of the script
 script_name="cp-tool.py"
 script_path=$(command -v "$script_name")
-
-# Check if the script path is found in PATH
-if [ -z "$script_path" ]; then
-    echo "$script_name not found in PATH. Using local script."
-    # Use the local script in the current directory
-    script_path="./$script_name"
-fi
 
 # Check if the script file exists
 if [ ! -f "$script_path" ]; then
@@ -24,11 +18,13 @@ parsed_dir=""
 while IFS= read -r line; do
     if [[ $line == dir=* ]]; then
         parsed_dir=${line#dir=}
-        parsed_dir="${parsed_dir}"
         break;
     else
         echo "$line"
     fi
 done <<< "$output"
 
-cd "$parsed_dir" || exit 1
+# Change to the parsed directory if it was found
+if [ -n "$parsed_dir" ]; then
+    cd "$parsed_dir" || exit 1
+fi
