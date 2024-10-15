@@ -1,6 +1,13 @@
 # cp-tool
 A command-line interface (CLI) for creating competitive programming problem files.
 
+## Installation
+To install the cp-tool, use the following pip command:
+
+```bash
+pip install cptool-py
+```
+
 ## Configuration
 To set up your templates, copy them to `~/.local/share/cp-tool/template.<extension>`.  
 *(If you're using Windows or Mac, please [install Linux](https://github.com/Amog-OS/AmogOS).)*
