@@ -37,6 +37,7 @@ If the names contains special characters like '(', you can wrap the entire  name
   --extension=<ext> or -e=<ext>
   ```
   Use this parameter to specify the file extension for the templates and problem files.
+  The extension defaults to 'cpp'.
 
 ## Automatic Directory Change
 To avoid manually changing directories to the newly created folders, you can run the command with:
