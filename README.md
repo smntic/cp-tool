@@ -1,19 +1,46 @@
 # cp-tool
 A command-line interface (CLI) for creating competitive programming problem files.
 
-## Installation
-To install the cp-tool, use the following pip command:
+## Installation with pip
+To install cp-tool with pip, use the following command:
 
 ```bash
 pip install cptool-py
 ```
 
+## Installation with nix flakes
+To install cp-tool as a nix flake, add the following input to your configuration:
+
+```nix
+{
+  inputs = {
+    cp-tool.url = "github:smnast/cp-tool";
+  };
+}
+```
+
+Then you can install it either through either your NixOS or home-manager configuration.
+
+**NixOS**
+```nix
+environment.systemPackages = [
+  inputs.cp-tool.packages.${pkgs.system}.cptool-py
+];
+```
+
+**home-manager**
+```nix
+home.packages = [
+  inputs.cp-tool.packages.${pkgs.system}.cptool-py
+];
+```
+
 ## Configuration
 To set up your templates, copy them to `~/.local/share/cp-tool/template.<extension>`.  
-*(If you're using Windows or Mac, please [install Linux](https://github.com/Amog-OS/AmogOS).)*
+Alternatively, you can define a custom template path with the `--template-path` argument.
 
 ## Usage
-```
+```bash
 cpt <commands> [args]
 ```
 
@@ -45,6 +72,13 @@ If the names contains special characters like '(', you can wrap the entire  name
   ```
   Use this parameter to specify the file extension for the templates and problem files.
   The extension defaults to 'cpp'.
+
+- **Template Path:**
+  ```bash
+  --template-path=<path> or -t=<path>
+  ```
+  Use this paramter to specify the path to a directory containing all your
+  template files. Otherwise defaults to '~/.local/share/cp-tool'
 
 ## Automatic Directory Change
 To avoid manually changing directories to the newly created folders, you can run the command with:
