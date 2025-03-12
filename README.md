@@ -14,7 +14,7 @@ To install cp-tool as a nix flake, add the following input to your configuration
 ```nix
 {
   inputs = {
-    cp-tool.url = "github:smnast/cp-tool";
+    cp-tool.url = "github:smntic/cp-tool";
   };
 }
 ```
