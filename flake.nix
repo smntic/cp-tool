@@ -12,7 +12,7 @@
       cptool-py = pkgs.python3Packages.buildPythonPackage {
         pname = "cptool-py";
         format = "pyproject";
-        version = "2.0.3";
+        version = "2.0.4";
         src = ./.;
         nativeBuildInputs = [ pkgs.python3Packages.setuptools ];
         propagatedBuildInputs = [ pkgs.python3Packages.platformdirs ];

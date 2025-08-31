@@ -113,19 +113,3 @@ format.
   Specify the path to a folder containing all your template files. This defaults
   to the typical "user data directory" of your operating system. See `cpt -h`
   for more information.
-
-## Automatic Directory Change
-
-To avoid manually changing directories to the newly created folders, you can
-run the command with:
-
-```bash
-source cpt <arguments>
-```
-
-Alternatively, you can create an alias in your shell profile to make `cpt`
-execute with `source` automatically:
-
-```bash
-alias cpt='source cpt'
-```
