@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cptool-py"
-version = "2.0.0"
+version = "2.0.1"
 description = "CLI for creating competitive programming problem files"
 readme = "README.md"
 authors = [{ name = "Simon Ashton", email = "simon@smntic.dev" }]
