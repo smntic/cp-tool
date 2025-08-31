@@ -1,6 +1,6 @@
 import argparse
-from formatting import generate_alpha_indices, generate_numeric_indices
-from template import get_default_template_folder
+from cptool_py.formatting import generate_alpha_indices, generate_numeric_indices
+from cptool_py.template import get_default_template_folder
 
 def parse_args() -> argparse.Namespace:
     # Main parser

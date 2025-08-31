@@ -1,7 +1,7 @@
 import os
 import platformdirs
 from argparse import Namespace
-from formatting import format_extension
+from cptool_py.formatting import format_extension
 
 def get_template_path(args: Namespace) -> str:
     extension: str = args.extension

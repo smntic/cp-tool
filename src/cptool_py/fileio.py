@@ -1,7 +1,7 @@
 import os
 import shutil
-from UI import confirm
-from error import fatal_error_message
+from cptool_py.UI import confirm
+from cptool_py.error import fatal_error_message
 
 def copy_template(template_path: str, destination_path: str, force: bool) -> bool:
     # Ensure the template file exists:
@@ -28,11 +28,11 @@ def copy_template(template_path: str, destination_path: str, force: bool) -> boo
 
     return True
 
-def make_folder(folder_path: str, force: bool) -> tuple[bool, str]:
+def make_folder(folder_path: str, force: bool) -> bool:
     try:
         os.makedirs(folder_path, exist_ok=force) # What about permission errors?
     except OSError:
         fatal_error_message(f'Folder {folder_path} already exists.')
 
-    return (True, folder_path)
+    return True
 

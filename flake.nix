@@ -11,9 +11,11 @@
     in {
       cptool-py = pkgs.python3Packages.buildPythonPackage {
         pname = "cptool-py";
-        version = "1.1.3";
+        format = "pyproject";
+        version = "2.0.3";
         src = ./.;
         nativeBuildInputs = [ pkgs.python3Packages.setuptools ];
+        propagatedBuildInputs = [ pkgs.python3Packages.platformdirs ];
 
         meta = with pkgs.lib; {
           description = "CLI for creating competitive programming problem files";

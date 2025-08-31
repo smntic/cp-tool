@@ -1,6 +1,6 @@
 import sys
 from typing import NoReturn
-from UI import print_error, print_warning
+from cptool_py.UI import print_error, print_warning
 
 def error_message(message: str) -> None:
     print_error(f'Error: {message}')

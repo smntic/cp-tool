@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-from args import parse_args
-from commands import handle_args
+from cptool_py.args import parse_args
+from cptool_py.commands import handle_args
 
 def main() -> None:
     args = parse_args()

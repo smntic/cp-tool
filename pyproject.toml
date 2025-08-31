@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cptool-py"
-version = "2.0.1"
+version = "2.0.3"
 description = "CLI for creating competitive programming problem files"
 readme = "README.md"
 authors = [{ name = "Simon Ashton", email = "simon@smntic.dev" }]
@@ -19,10 +19,10 @@ classifiers = [
   "Operating System :: POSIX",
 ]
 
+[project.scripts]
+cpt = "cptool_py.cp_tool:main"
+
 [tool.setuptools]
 package-dir = {"" = "src"}
-script-files = ["cpt", "src/cp-tool.py"]
-
-[tool.setuptools.packages.find]
-where = ["src"]
+packages = ["cptool_py"]
 
