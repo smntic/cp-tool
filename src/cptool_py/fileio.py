@@ -22,7 +22,7 @@ def copy_template(template_path: str, destination_path: str, force: bool) -> boo
     
     try:
         # Copy the template file to the destination file:
-        _ = shutil.copy(template_path, destination_path)
+        _ = shutil.copyfile(template_path, destination_path) # Ignore file permissions
     except PermissionError:
         fatal_error_message(f'Insufficient permissions to copy to {destination_path}')
 
